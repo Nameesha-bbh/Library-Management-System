@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Register New Book</title>
+    <style>
+                     hr {  
+                    border: 1px solid #f1ebeb;  
+                    margin-bottom: 25px;  
+                    }                
+                #cover {
+                    background: rgb(100, 29, 231) center center no-repeat;
+                    background-size: cover;
+                    height: 100%;
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                }
+
+                #cover-caption {
+                    width: 100%;
+                    position: relative;
+                    z-index: 1;
+                }
+
+                /* only used for background overlay not needed for centering */
+                form:before {
+                    content: '';
+                    height: 100%;
+                    left: 0;
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                    background-color: rgba(0,0,0,0.3);
+                    z-index: -1;
+                    border-radius: 10px;
+                }
+
+    </style>
+</head>
+<body>
+    <section id="cover" class="min-vh-100 text-primary">
+        <div id="cover-caption">
+            <div class="container">
+                <div class="row text-white">
+                    <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                        <h4 class="display-4 py-2 text-truncate">Add book details</h4>
+                        <hr>
+                        <div class="px-2">
+                            <form action="../LibraryPhpFiles/newBook.php" method="POST" class="justify-content-center">
+                                <div class="form-group">
+                                    <label class="sr-only">Book ID:</label>
+                                    <input type="text" class="form-control" name="book_id" placeholder="Enter the book ID" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">Book name:</label>
+                                    <input type="text" class="form-control"  name="book_name" placeholder="Enter the book name" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="sr-only">Author Name:</label>
+                                    <input type="text" class="form-control" name="author_name" placeholder="Enter the author name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">Branch ID:</label>
+                                    <input type="text" class="form-control" name="branch_id" placeholder="Enter the branch ID" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">No of copies:</label>
+                                    <input type="text" class="form-control" name="no_of_copies" placeholder="Enter the no of copies" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">Publisher Name:</label>
+                                    <input type="text" class="form-control" name="publisher_name" placeholder="Enter the publisher name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">phone no:</label>
+                                    <input type="text" class="form-control" name="phone_no" placeholder="Enter the publisher phone no" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">Address:</label>
+                                    <input type="text" class="form-control" name="address" placeholder="Enter the publisher address" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="sr-only">Publication year:</label>
+                                    <input type="text" class="form-control" name="pub_year" placeholder="Enter the year of publication" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+
+                
+                
+                
