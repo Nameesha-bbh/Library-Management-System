@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>SQL QUERY 2</title>
+    <title>SQL QUERY 5</title>
     <style>
             #customers {
             font-family: Arial, Helvetica, sans-serif;
@@ -30,20 +30,23 @@
 <body>
         <table id="customers">
                 <tr>
+                        <th>Book ID</th>
                         <th>Branch ID</th>
-                        <th>Branch Name</th>
-                        <th>Branch Address</th>
+                        <th>Card No</th>
+                        <th>Student Name</th>
+                        <th>Issue Date</th>
+                        <th>Due Date</th>
                 </tr>
                 <?php 
                         $con = mysqli_connect('localhost', 'root', 'nameesha') or die(mysqli_error($con));
                         mysqli_select_db($con, 'library_db')  or die(mysqli_error($con));
-                        $query = "Select * from LIBRARY_BRANCH";
+                        $query = "Select B.BOOK_ID,B.BRANCH_ID,B.CARD_NO,C.STUD_NAME,B.DATE_OUT,B.DUE_DATE from BOOK_LENDING B,CARD C WHERE B.CARD_NO=C.CARD_NO";
                         
                         $result = mysqli_query($con, $query) or die(mysqli_error($con));
                         if ($result->num_rows > 0)
                         {
                             while($row = $result->fetch_assoc()) {
-                                echo "<tr><td>".$row["BRANCH_ID"]."</td><td>".$row["BRANCH_NAME"]."</td><td>".$row["ADDRESS"]."</td></tr>";
+                                echo "<tr><td>".$row["BOOK_ID"]."</td><td>".$row["BRANCH_ID"]."</td><td>".$row["CARD_NO"]."</td><td>".$row["STUD_NAME"]."</td><td>".$row["DATE_OUT"]."</td><td>".$row["DUE_DATE"]."</td></tr>";
                             }
                         }
                         else{

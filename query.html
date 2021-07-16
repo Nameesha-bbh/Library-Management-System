@@ -45,10 +45,11 @@
             </div>
         </center>
 
+        <!--Over-->
         <center>
             <div class="card mt-5 col-12 bg-info" style="width: 90%;">
                 <div class="card-body" id="contanier">
-                    <h5 class="card-title"><b><u>Query 1</u></b></h5>
+                    <h5 class="card-title"><b><u>Query 3</u></b></h5>
                     <p class="card-text" id="pdesign">Find the details of book,no of copies and other details present in each branch</p>
                     <a href="QueryPhpFiles/3rdquery.php" class="btn btn-light">Click to execute query</a>
                 </div>
@@ -58,9 +59,9 @@
         <center>
             <div class="card mt-5 col-12 bg-info" style="width: 90%;">
                 <div class="card-body" id="contanier">
-                    <h5 class="card-title"><b><u>Query 1</u></b></h5>
+                    <h5 class="card-title"><b><u>Query 4</u></b></h5>
                     <p class="card-text" id="pdesign">Find the card number and respective name of student who has borrowed more than 3 books between 17th March and 1st May</p>
-                    <a href="QueryPhpFiles/1stquery.php" class="btn btn-light">Click to execute query</a>
+                    <a href="QueryPhpFiles/4thquery.php" class="btn btn-light">Click to execute query</a>
                 </div>
             </div>
         </center>
@@ -68,21 +69,9 @@
         <center>
             <div class="card mt-5 col-12 bg-info" style="width: 90%;">
                 <div class="card-body" id="contanier">
-                    <h5 class="card-title"><b><u>Query 1</u></b></h5>
-                    <p class="card-text" id="pdesign">Find the card number and respective name of student who has borrowed more than 3 books between 17th March and 1st May</p>
-                    <a href="QueryPhpFiles/1stquery.php" class="btn btn-light">Click to execute query</a>
-                </div>
-            </div>
-        </center>
-
-
-        <!--Query-->
-        <center>
-            <div class="card mt-5 col-12 bg-info" style="width: 90%;">
-                <div class="card-body" id="contanier">
-                    <h5 class="card-title"><b><u>Query 1</u></b></h5>
-                    <p class="card-text" id="pdesign">Find the card number and respective name of student who has borrowed more than 3 books between 17th March and 1st May</p>
-                    <a href="QueryPhpFiles/8thquery.php" class="btn btn-light">Click to execute query</a>
+                    <h5 class="card-title"><b><u>Query 5</u></b></h5>
+                    <p class="card-text" id="pdesign">List all the student details who have taken a book</p>
+                    <a href="QueryPhpFiles/5thquery.php" class="btn btn-light">Click to execute query</a>
                 </div>
             </div>
         </center>
@@ -90,12 +79,15 @@
         <center>
             <div class="card mt-5 col-12 bg-info" style="width: 90%;">
                 <div class="card-body" id="contanier">
-                    <h5 class="card-title"><b><u>Query 1</u></b></h5>
-                    <p class="card-text" id="pdesign">Find the card number and respective name of student who has borrowed more than 3 books between 17th March and 1st May</p>
-                    <a href="QueryPhpFiles/1stquery.php" class="btn btn-light">Click to execute query</a>
+                    <h5 class="card-title"><b><u>Query 6</u></b></h5>
+                    <form action="QueryPhpFiles/6thquery.php" method="POST">
+                        <input type="text" class="form-control" placeholder="Enter the book name" name="book_name" required>
+                        <p class="card-text" id="pdesign">List all the student who have taken the book specified by the user</p>
+                        <button class="btn btn-light">Click to execute query</button>
+                    </form>
+                    
                 </div>
             </div>
         </center>
-
 </body>
 </html>

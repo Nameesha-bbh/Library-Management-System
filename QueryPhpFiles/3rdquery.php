@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>SQL QUERY 2</title>
+    <title>SQL QUERY 3</title>
     <style>
             #customers {
             font-family: Arial, Helvetica, sans-serif;
@@ -31,19 +32,23 @@
         <table id="customers">
                 <tr>
                         <th>Branch ID</th>
-                        <th>Branch Name</th>
-                        <th>Branch Address</th>
+                        <th>Book ID</th>
+                        <th>Book Name</th>
+                        <th>Publisher Name</th>
+                        <th>Author Name</th>
+                        <th>No of copies</th>
                 </tr>
                 <?php 
                         $con = mysqli_connect('localhost', 'root', 'nameesha') or die(mysqli_error($con));
                         mysqli_select_db($con, 'library_db')  or die(mysqli_error($con));
-                        $query = "Select * from LIBRARY_BRANCH";
+                        $query = "SELECT L.BRANCH_ID,B.BOOK_ID,B.TITLE,B.PUBLISHER_NAME,A.AUTHOR_NAME,C.NO_OF_COPIES FROM BOOK B,BOOK_AUTHORS A,BOOK_COPIES C,LIBRARY_BRANCH L WHERE B.BOOK_ID=A.BOOK_ID AND B.BOOK_ID=C.BOOK_ID AND L.BRANCH_ID=C.BRANCH_ID;
+                        ";
                         
                         $result = mysqli_query($con, $query) or die(mysqli_error($con));
                         if ($result->num_rows > 0)
                         {
                             while($row = $result->fetch_assoc()) {
-                                echo "<tr><td>".$row["BRANCH_ID"]."</td><td>".$row["BRANCH_NAME"]."</td><td>".$row["ADDRESS"]."</td></tr>";
+                                echo "<tr><td>".$row["BRANCH_ID"]."</td><td>".$row["BOOK_ID"]."</td><td>".$row["TITLE"]."</td><td>".$row["PUBLISHER_NAME"]."</td><td>".$row["AUTHOR_NAME"]."</td><td>".$row["NO_OF_COPIES"]."</td></tr>";
                             }
                         }
                         else{
