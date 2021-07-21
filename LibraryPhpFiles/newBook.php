@@ -2,7 +2,7 @@
         $servername = "localhost";
         $username = "root";
         $password = "nameesha";
-        $dbname = "library_db_copy";
+        $dbname = "library_db";
 
         // Create connection
         $conn = new mysqli($servername, $username, $password, $dbname);
@@ -20,8 +20,17 @@
         $branch_id = $_POST['branch_id'];
         $py = $_POST['pub_year'];
 
-        $sql = "INSERT INTO PUBLISHER (NAME,PHONE,ADDRESS) VALUES ('$pub_name',$ph_no,'$address')";
-        $result = $conn->query($sql);
+        $confirm = "select true from publisher where name='$pub_name'";
+        $resultC = $conn->query($confirm);
+        if ($resultC->num_rows > 0){
+                echo "";
+
+        }
+        else{
+                $sql = "INSERT INTO `PUBLISHER` (`NAME`,`PHONE`,`ADDRESS`) VALUES ('$pub_name',$ph_no,'$address');";
+                $result = $conn->query($sql);
+        }
+        
 
         $sql1 = "INSERT INTO BOOK (BOOK_ID,TITLE,pub_year,PUBLISHER_NAME) VALUES ($book_id,'$book_name','$py','$pub_name')";
         $result1 = $conn->query($sql1);
@@ -31,11 +40,10 @@
         
         $sql3 = "INSERT INTO BOOK_COPIES (NO_OF_COPIES,BOOK_ID,BRANCH_ID) VALUES($noc,$book_id,$branch_id);";
         $result3 = $conn->query($sql3);
-        if($result === TRUE && $result1 === TRUE && $result2 === TRUE && $result3 === TRUE ){
+        if($result1 === TRUE && $result2 === TRUE && $result3 === TRUE ){
                 echo "Insertion successful <br>";
                 echo "<br><a href='../index.html'>Click to go back</a>";
-        } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
         }
+       
         $conn->close();
 ?>

@@ -38,7 +38,7 @@
                         mysqli_select_db($con, 'library_db')  or die(mysqli_error($con));
                         $pub = $_POST["pub"];
                         $book = $_POST["book"];
-                        $query = "select book_id,pub_year from book where title='$book' and publisher_name='$pub' and pub_year = (select max(pub_year) from book);;
+                        $query = "select book_id,pub_year from book where title='$book' and publisher_name='$pub' and pub_year = (select max(pub_year) from book where title='$book' and publisher_name='$pub');
                         ";
                         $result = mysqli_query($con, $query) or die(mysqli_error($con));
                         if ($result->num_rows > 0)

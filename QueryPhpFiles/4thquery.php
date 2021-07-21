@@ -31,18 +31,18 @@
         <table id="customers">
                 <tr>
                         <th>Card Number</th>
-                        <th>Student Name</th>
+        
                 </tr>
                 <?php 
                         $con = mysqli_connect('localhost', 'root', 'nameesha') or die(mysqli_error($con));
                         mysqli_select_db($con, 'library_db')  or die(mysqli_error($con));
-                        $query = "SELECT C.CARD_NO,C.STUD_NAME FROM BOOK_LENDING B,CARD C WHERE C.CARD_NO=B.CARD_NO AND DATE_OUT BETWEEN '2021-03-17' AND '2021-05-01' ORDER BY C.CARD_NO";
+                        $query = "SELECT CARD_NO FROM BOOK_LENDING WHERE  DATE_OUT BETWEEN '2021-01-01' AND '2021-04-01' GROUP BY CARD_NO HAVING  COUNT(*) > 2;";
                         
                         $result = mysqli_query($con, $query) or die(mysqli_error($con));
                         if ($result->num_rows > 0)
                         {
                             while($row = $result->fetch_assoc()) {
-                                echo "<tr><td>".$row["CARD_NO"]."</td><td>".$row["STUD_NAME"]."</td></tr>";
+                                echo "<tr><td>".$row["CARD_NO"]."</td></tr>";
                             }
                         }
                         else{

@@ -37,7 +37,7 @@
                 </tr>
                 <?php 
                         $con = mysqli_connect('localhost', 'root', 'nameesha') or die(mysqli_error($con));
-                        mysqli_select_db($con, 'library_db_copy')  or die(mysqli_error($con));
+                        mysqli_select_db($con, 'library_db')  or die(mysqli_error($con));
                         $book_name = $_POST["book_name"];
                         if($_POST["book_name"] != "")
                         {
